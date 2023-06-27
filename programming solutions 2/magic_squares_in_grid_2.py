@@ -17,7 +17,7 @@ class Solution:
             col_sums = [sum([row[i] for row in sub_grid]) for i in range(3)]
             if len(set(col_sums)) > 1 and row_sums[0] != col_sums[0]:
                 return False
-            
+
             diag_sums = sum([sub_grid[i][i] for i in range(3)])
             return diag_sums == row_sums[0]
 

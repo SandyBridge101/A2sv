@@ -1,2 +1,2 @@
 
-print(list('fcofd'))
+print(float('.'))
