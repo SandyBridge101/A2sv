@@ -6,7 +6,7 @@ for _ in range(N):
     #print(arr)
     if arr[0]==0:
         ch=""
-        for i in range(0,len(arr)-1):
+        for i in range(0,l-1):
             if arr[i+1]-arr[i]<=1:
                 ch="YES"
                 if arr[i+1]-arr[i]<0:

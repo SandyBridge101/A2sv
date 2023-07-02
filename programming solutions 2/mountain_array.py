@@ -4,12 +4,13 @@ peak=0
 low=0
 if len(arr)==2:
     print(False)
-    
+
 for i in range(1,len(arr)-1):
     if arr[i]>arr[i-1] and arr[i]>arr[i+1]:
         peak+=1
     if arr[i]<arr[i-1] and arr[i]<arr[i+1]:
         low+=1
+
 print(peak)
 
 if peak==1 and low==0:
