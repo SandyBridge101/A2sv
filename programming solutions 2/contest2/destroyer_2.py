@@ -4,17 +4,20 @@ for _ in range(N):
     l=int(input())
     arr=list(map(int,input().split()))
     arr.sort()
-    old_count=len([i for i in arr if i==0])
-    ch=""
+    idx=set(arr)
+    ch=''
+    freq=[0 for i in range(0,max(arr)+1)]
+    #print(idx,arr,freq)
+    for i in range(0,len(arr)):
+        freq[arr[i]]+=1
+    #print(freq)
     
-    for i in range(1,max(arr)):
-        if arr[0]!=0:
-            ch="NO"
-            break
-        new_count=len([k for k in arr if k==i])
-        if new_count+1==old_count or new_count==old_count:
+    for f in range(list(idx)[0],len(freq)-1):
+        if freq[f]>=freq[f+1]:
             ch="YES"
         else:
             ch="NO"
-            
+            break
+    if len(idx)==1 and list(idx)[0]>0:
+        ch="NO"
     print(ch)

@@ -22,12 +22,13 @@ for _ in range(N):
     arr=list(map(int,input().split()))
     operations=int(((n*(n-1))/2)-1)
     swaps=0
-    ch=""
-    for i in range(0,len(arr)):
-        swaps+=len([arr[k] for k in range(i+1,n) if arr[k]<arr[i]])
-        if swaps>operations: break
-    #print(swaps,operations)
-    if swaps<=operations:
-        print("YES")
-    else:
-        print("NO")
+    decreasing=False
+    for i in range(0,len(arr)-1):
+        if arr[i]>arr[i+1]:
+            decreasing=True
+        else:
+            decreasing=False
+            break
+    
+    if decreasing==False:print("YES")
+    else:print("NO")
