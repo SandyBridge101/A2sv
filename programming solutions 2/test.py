@@ -1,20 +1,6 @@
-def arrayTransformation(list1, list2 ):
-    tmp1, tmp2=[],[]
-    for i in range(len(list1)):
-        if list1[i]!=list2[i]:
-            tmp1.append(list1[i])
-            tmp2.append(list2[i])
-            for i in range(len(tmp1)):
-                tmp1[i] = tmp1[i] + 1
-                if tmp1.sort()==tmp2.sort():
-                    return 1
-                else:
-                    return 0
+arr=[1,2,3,4,5,6,7,8,9]
+arr2=[1,2,3,4,6,5,7,8,9]
+#arr=arr[2:6:-1]
+arr[2:6]=reversed(arr[2:6])
 
-t=int(input())
-
-for _ in range(t):
-    n=int(input())
-    arr1=list(map(int,input().split()))
-    arr2=list(map(int,input().split()))
-    print(arrayTransformation(arr1,arr2))
+print(arr)
