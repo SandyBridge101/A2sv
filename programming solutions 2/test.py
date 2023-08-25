@@ -1,3 +1,23 @@
-from collections import Counter
+def numberOfSubarrays(nums: list[int], k: int) -> int:
+    right ,left = 0,0
+    ans = 0 
+    odd_cnt = 0
+    ans = 0
+    cur_sub_cnt = 0
+    for right in range(len(nums)):
+        
+        if nums[right]%2 == 1:
+            odd_cnt += 1
+            cur_sub_cnt = 0
+            
+        while odd_cnt == k:
+            if nums[left]%2 == 1:
+                odd_cnt -= 1
+            cur_sub_cnt += 1
+            left += 1
+            
+        ans += cur_sub_cnt
+        
+    return ans
 
-print(Counter("abcd"))
+print(numberOfSubarrays([2,2,2,1,2,2,1,2,2,2],2))
