@@ -1,0 +1,24 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        pas=[]
+        
+
+        def pascal(lvl,level):
+            #print(level)
+            if level==numRows:
+                return pas
+            else:
+                nlvl=[]
+                for i in range(0,len(lvl)):
+                    if i==0:
+                        nlvl.append(lvl[i]+0)
+                    else:
+                        nlvl.append(lvl[i]+lvl[i-1])
+                nlvl.append(1)
+                level+=1
+                pas.append(nlvl)
+                pascal(nlvl,level)
+        pas.append([1])
+        pascal([1],1)
+        return pas
+                
