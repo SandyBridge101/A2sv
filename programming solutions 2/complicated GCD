@@ -1,0 +1,8 @@
+a,b=map(int, input().split())
+
+d=b-a
+
+if d>=1:
+    print(1)
+else:
+    print(a)
