@@ -1,25 +1,37 @@
 class Solution:
     def longestPrefix(self, s: str) -> str:
-        s=s[:len(s)-1]+'#'+s
+        m=10**15+7
+        def mul(a,b):
+            return ((a%m)*(b%m))%m
         n=len(s)
-        lps=[0]*(n)
+        rs=s[::-1]
+        a=27
+        alph={chr(i+97):i+1 for i in range(26)}
+        seen=set()
+        #print(alph)
+        l=n-1
+        phsh=0
+        shsh=0
+        p=-1
+        for r in range(n):
+            phsh=((phsh%m)+(alph[s[r]]%m))%m
+            seen.add(phsh)
+            #print(phsh,s[r])
+            phsh=mul(phsh,a)%m
 
-        for i in range(1,n):
-            j=lps[i-1]
+        #print(seen)
+        b=1
+        for r in range(n-1):
+            shsh=((mul(((b)%m),(alph[rs[r]]%m))%m)+(shsh%m))%m
+            #print(shsh,rs[r],r)
+            if shsh in seen:
+                p=r
+            b=(a*b)%m
 
-            while j>0 and s[i]!=s[j]:
-                j=lps[j-1]
-            
-            if s[i]==s[j]:
-                j+=1
+        
+        res=s[n-(p+1):n]
 
-            lps[i]=j
-
-        print(lps)
-        x=lps[-1]
-        return s[:x]
-
-
+        return res
 
 
         
